@@ -73,7 +73,7 @@ namespace WorkoutForces.ViewModel
             try
             {
                 var theUser = DataProvider.Ins.DB.Users.Where(x => x.UserName == _userText & x.Password == _passwordText).Single();
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new MainWindow(theUser);
                 loginWindow.Close();
                 mainWindow.ShowDialog();
             }

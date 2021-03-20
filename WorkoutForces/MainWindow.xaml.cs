@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WorkoutForces.Model;
 
 namespace WorkoutForces
 {
@@ -21,6 +22,11 @@ namespace WorkoutForces
     public partial class MainWindow : Window
     {
         public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        public MainWindow(User theUser)
         {
             InitializeComponent();
         }
