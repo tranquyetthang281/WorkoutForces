@@ -3,16 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WorkoutForces.Model;
 
 namespace WorkoutForces.ViewModel
 {
     class MainViewModel
     {
-        RankViewModel RankView;
-
-        MainViewModel()
+        public RankViewModel rankViewModel;
+        public ProfileViewModel profileViewModel;
+        public User user;
+        public MainViewModel()
         {
-            RankView = new RankViewModel();
+            rankViewModel = new RankViewModel();
+            profileViewModel = new ProfileViewModel();
+        }
+        public MainViewModel(User theUser)
+        {
+            user = theUser;
+            rankViewModel = new RankViewModel();
+            profileViewModel = new ProfileViewModel(theUser);
         }
     }
 }
