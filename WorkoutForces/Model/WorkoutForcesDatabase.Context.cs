@@ -25,7 +25,7 @@ namespace WorkoutForces.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Challenge> Challenges { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }
