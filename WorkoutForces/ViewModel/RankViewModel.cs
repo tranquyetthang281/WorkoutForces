@@ -30,8 +30,7 @@ namespace WorkoutForces.ViewModel
         public RankViewModel()
         {
             _listRank = new List<User>();
-            RankCommand = new RelayCommand<object>(canExecuteRank, RankExecute);
-           
+            RankCommand = new RelayCommand<object>(canExecuteRank, RankExecute);          
         }
 
         public bool canExecuteRank(object x)
@@ -40,18 +39,8 @@ namespace WorkoutForces.ViewModel
         }
         public void RankExecute(object p)
         {
-            MessageBox.Show("Executed!");
-            int count = 0;
-                count = DataProvider.Ins.DB.Users.Count();
-            if (count > 0)
-            {
-                MessageBox.Show("DB is exist");
-            }
-            else
-            {
-                MessageBox.Show("DB isn't exist");
-            }
-            //  ListRank = DataProvider.Ins.DB.Users.OrderByDescending(x => x.score).Take(3).ToList();               
+            MessageBox.Show("Executed!");      
+           ListRank = DataProvider.Ins.DB.Users.OrderByDescending(x => x.score).Take(3).ToList();               
         }
     }
 }
