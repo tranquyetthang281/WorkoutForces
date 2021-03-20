@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutForces", "WorkoutForces\WorkoutForces.csproj", "{E05C839F-50CD-40C1-B142-F586AA543BDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E05C839F-50CD-40C1-B142-F586AA543BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E05C839F-50CD-40C1-B142-F586AA543BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E05C839F-50CD-40C1-B142-F586AA543BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E05C839F-50CD-40C1-B142-F586AA543BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {041F4EBA-9C3B-4755-A1FB-BE80DA0D21F5}
+	EndGlobalSection
+EndGlobal
