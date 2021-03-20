@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WorkoutForces.Model;
 
 namespace WorkoutForces.ViewModel
@@ -11,7 +12,7 @@ namespace WorkoutForces.ViewModel
     class RankViewModel : BaseViewModel
     {
         private List<User> _listRank;
-        public RelayCommand<object> RankCommand;
+        public RelayCommand<object> RankCommand { get; set; }
         public List<User> ListRank
         {
             get
@@ -30,6 +31,7 @@ namespace WorkoutForces.ViewModel
         {
             _listRank = new List<User>();
             RankCommand = new RelayCommand<object>(canExecuteRank, RankExecute);
+           
         }
 
         public bool canExecuteRank(object x)
@@ -38,7 +40,18 @@ namespace WorkoutForces.ViewModel
         }
         public void RankExecute(object p)
         {
-            ListRank = DataProvider.Ins.DB.Users.OrderByDescending(x => x.score).Take(10).ToList();               
+            MessageBox.Show("Executed!");
+            int count = 0;
+                count = DataProvider.Ins.DB.Users.Count();
+            if (count > 0)
+            {
+                MessageBox.Show("DB is exist");
+            }
+            else
+            {
+                MessageBox.Show("DB isn't exist");
+            }
+            //  ListRank = DataProvider.Ins.DB.Users.OrderByDescending(x => x.score).Take(3).ToList();               
         }
     }
 }

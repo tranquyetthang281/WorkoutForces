@@ -13,10 +13,10 @@ namespace WorkoutForces.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WorkoutForcesDatabaseEntities : DbContext
+    public partial class WorkoutForcesDatabaseEntities2 : DbContext
     {
-        public WorkoutForcesDatabaseEntities()
-            : base("name=WorkoutForcesDatabaseEntities")
+        public WorkoutForcesDatabaseEntities2()
+            : base("name=WorkoutForcesDatabaseEntities2")
         {
         }
     
@@ -25,7 +25,7 @@ namespace WorkoutForces.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Challenge> Challenges { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }
