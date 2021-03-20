@@ -111,6 +111,8 @@ namespace WorkoutForces.ViewModel
                 User newuser = new User();
                 newuser.UserName = _userText;
                 newuser.Password = _passwordText;
+                newuser.score = 0;
+                newuser.IdChallengeJoin = "";
                 DataProvider.Ins.DB.Users.Add(newuser);
                 DataProvider.Ins.DB.SaveChanges();
             }

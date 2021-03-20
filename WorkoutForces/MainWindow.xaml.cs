@@ -25,14 +25,11 @@ namespace WorkoutForces
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new RankViewModel();
-
         }
 
         public MainWindow(User theUser)
         {
-            InitializeComponent();
-            DataContext = new RankViewModel();
+            InitializeComponent();    
         }
     }
 }

@@ -22,6 +22,7 @@ namespace WorkoutForces
         public LoginWindow()
         {
             InitializeComponent();
+            DataContext = new LoginWindow();
         }
     }
 }
