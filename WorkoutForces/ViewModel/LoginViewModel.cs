@@ -82,7 +82,6 @@ namespace WorkoutForces.ViewModel
                 MessageBox.Show("Wrong username or password!");
 
             }
-
         }
 
         public bool canExecutePasswordChange(object p)
@@ -94,7 +93,6 @@ namespace WorkoutForces.ViewModel
         {
             PasswordBox pwb = p as PasswordBox;
             PasswordText = pwb.Password.ToString();
-
         }
 
         public bool canExecuteRegister(object x)
@@ -114,13 +112,8 @@ namespace WorkoutForces.ViewModel
                 newuser.UserName = _userText;
                 newuser.Password = _passwordText;
                 DataProvider.Ins.DB.Users.Add(newuser);
-                DataProvider.Ins.DB.Users.SaveChanges();
-
+                DataProvider.Ins.DB.SaveChanges();
             }
-
         }
-
-
     }
-
 }

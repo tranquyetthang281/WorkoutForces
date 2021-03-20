@@ -8,14 +8,27 @@ using WorkoutForces.Model;
 
 namespace WorkoutForces.ViewModel
 {
-    class RankViewModel
+    class RankViewModel : BaseViewModel
     {
-        public ObservableCollection<User> listRank;
+        private List<User> _listRank;
         public RelayCommand<object> RankCommand;
+        public List<User> ListRank
+        {
+            get
+            {         
+                return _listRank;
+            }
+
+            set
+            {
+                _listRank = value;
+                OnPropertyChanged("ListRank");
+            }
+        }
 
         public RankViewModel()
         {
-            listRank = new ObservableCollection<User>();
+            _listRank = new List<User>();
             RankCommand = new RelayCommand<object>(canExecuteRank, RankExecute);
         }
 
@@ -25,8 +38,7 @@ namespace WorkoutForces.ViewModel
         }
         public void RankExecute(object p)
         {
-            listRank = DataProvider.Ins.DB.Users.OrderByDescending(x => x.score).Take(10).ToList();               
+            ListRank = DataProvider.Ins.DB.Users.OrderByDescending(x => x.score).Take(10).ToList();               
         }
-
     }
 }
