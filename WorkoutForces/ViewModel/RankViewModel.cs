@@ -30,7 +30,7 @@ namespace WorkoutForces.ViewModel
         public RankViewModel()
         {
             _listRank = new List<User>();
-            RankCommand = new RelayCommand<object>(canExecuteRank, RankExecute);          
+            RankCommand = new RelayCommand<object>(canExecuteRank, RankExecute);     
         }
 
         public bool canExecuteRank(object x)
@@ -39,8 +39,7 @@ namespace WorkoutForces.ViewModel
         }
         public void RankExecute(object p)
         {
-            MessageBox.Show("Executed!");      
-           ListRank = DataProvider.Ins.DB.Users.OrderByDescending(x => x.score).Take(3).ToList();               
+            ListRank = DataProvider.Ins.DB.Users.OrderByDescending(x => x.score).Take(10).ToList();   //Binding listview itemSource                       
         }
     }
 }

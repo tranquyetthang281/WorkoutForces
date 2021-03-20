@@ -11,6 +11,11 @@ namespace WorkoutForces.Model
         private static DataProvider _ins;
         public static DataProvider Ins { get { if (_ins == null) _ins = new DataProvider(); return _ins; } set { _ins = value; } }
 
-        public WorkoutForcesDatabaseEntities2 DB { get { return new WorkoutForcesDatabaseEntities2(); } set { } }
+        public WorkoutForcesDatabaseEntities2 DB { get; set; }
+
+        private DataProvider()
+        {
+            DB = new WorkoutForcesDatabaseEntities2();
+        }
     }
 }
