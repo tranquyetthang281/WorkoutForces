@@ -12,6 +12,7 @@ namespace WorkoutForces.ViewModel
     {
         private List<Challenge> _listChallenge;
         private User _user;
+        private int _rankUser;
         public User User
         {
             get
@@ -35,11 +36,22 @@ namespace WorkoutForces.ViewModel
                 OnPropertyChanged("ListChallenge");
             }
         }
+        public int RankUser
+        {
+            get
+            {
+                return _rankUser;
+            }
+            set
+            {
+                _rankUser = value;
+                OnPropertyChanged("RankUser");
+            }
+        }
         public RelayCommand<object> profileCommand { get; set; }
         public ProfileViewModel()
         {
             profileCommand = new RelayCommand<object>(canExecuteProfile, ProfileExecute);
-            //User = new User();
             ListChallenge = new List<Challenge>();
         }
         public ProfileViewModel(User theUser)
@@ -54,27 +66,34 @@ namespace WorkoutForces.ViewModel
         }
         private void ProfileExecute(object parameter)
         {
-            MessageBox.Show("ProfileExecute");
+            //debug, apply a specific User to test
+            User = DataProvider.Ins.DB.Users.Where(x => x.Id == 1).Single();
+
+            MessageBox.Show("Debug: ProfileExecute");
+            string challenge = User.IdChallengeJoin;
+            var array = challenge.Split(',');
+            int size = array.Length;
+            for (int i = 0; i < size; i++)
             {
-                string challenge = User.IdChallengeJoin;
-                var array = challenge.Split(',');
-                //var arrayId = Convert.ToInt32(array);
-                //string[] array = { "1", "2", "3", "4" };
-                int size = array.Length;
-                for (int i = 0; i < size; i++)
-                {
-                    string temp = array[i];
-                    var ch = (DataProvider.Ins.DB.Challenges.Where(x => x.Id == temp).Single());
-                    ch = ch as Challenge;
-                    MessageBox.Show(ch.Content);
-                    ListChallenge.Add(ch);
-                    //MessageBox.Show("LC " + ListChallenge[i].Content);
-                }
-                ListChallenge = ListChallenge.ToList();
-                //ListChallenge = DataProvider.Ins.DB.Challenges.ToList();
+                string temp = array[i];
+                var ch = (DataProvider.Ins.DB.Challenges.Where(x => x.Id == temp).Single());
+                ch = ch as Challenge;
+                ListChallenge.Add(ch);
             }
+            ListChallenge = ListChallenge.ToList(); // apply to ListView
 
+            var sortedUsers = DataProvider.Ins.DB.Users.OrderByDescending(x => x.score).ToList();
+            int cnt = sortedUsers.Count();
 
+            for (int i = 0; i<cnt;i++)
+            {
+                if(sortedUsers[i].UserName == User.UserName)
+                {
+                    RankUser = i + 1;
+                    break;
+                }
+            }
+            MessageBox.Show("RankUser: " + RankUser.ToString());
         }
     }
 }
